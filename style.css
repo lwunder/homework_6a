@@ -112,7 +112,11 @@ td a {
   border-radius: 10px;
 }
 
-#instructions {
+#appointments-table {
+  border: 1px solid black;
+}
+
+.left-aligned {
   text-align: left;
 }
 

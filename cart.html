@@ -26,37 +26,28 @@
         <a class="button" href="index.html">HOME</a>
         <a class="selected button" href="cart.html">APPOINTMENTS</a>
         <a class="button" href="lab_results.html">LAB RESULTS</a>
-        <a class="button" href="testing_times.html">VACCINATIONS</a>
+        <a class="button" href="vaccinations.html">VACCINATIONS</a>
         <a class="button" href="profile.html">PROFILE</a>
       </nav>
     </header>
 
     <!-- MAIN BODY -->
     <div id="container">
-
-      <h1>Here are your appointment details.</h1>
-
-      <strong>You must arrive within 15 minutes of your scheduled appointment.</strong>
-
-      <br/>
-      <br/>
-      <table id="appt-details">
-        <tr>
-          <th>REASON</th>
-          <td>Asymptomatic COVID-19 Test</td>
-        </tr>
-        <tr>
-          <th>TIME</th>
-          <td>Sunday, February 27, 2022 8:50 AM</td>
-        </tr>
-        <tr>
-          <th>LOCATION</th>
-          <td>TCS Hall</td>
-        </tr>
+      <table id="appointments-table">
+        <thead>
+          <tr>
+            <th>UPCOMING</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left-aligned">8:50 AM | Sunday 3/30 - Asymptomatic COVID Test</td>
+          </tr>
+          <tr>
+            <td class="left-aligned">2:30 PM | Monday 3/31 - Flu Shot</td>
+          </tr>
+        </tbody>
       </table>
-
-      <br/>
-      <img id="qr-code" alt="qr-code" src="media/qr-code.png" style="width:200px;height:200px">
     </div>
   </body>
 </html>
