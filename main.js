@@ -6,6 +6,10 @@ function Appointment(time, date, type, location) {
   this.qrCode = "media/qr-code.png";
 }
 
+// localStorage.setItem("upcomingAppts", JSON.stringify([]))
+var upcomingAppts = [];
+localStorage.setItem("numInCart", 2);
+
 // build appointment list
 var apptList = [new Appointment("8:50 AM", "Sunday, February 27, 2022", "Asymptomatic COVID-19 Test", "TCS Hall"),
                 new Appointment("9:00 AM", "Monday, February 28, 2022", "Asymptomatic COVID-19 Test", "TCS Hall"),
@@ -15,10 +19,26 @@ var apptList = [new Appointment("8:50 AM", "Sunday, February 27, 2022", "Asympto
                 new Appointment("2:30 PM", "Thursday, March 3, 2022", "Asymptomatic COVID-19 Test", "TCS Hall"),
                 new Appointment("2:40 PM", "Thursday, March 3, 2022", "Asymptomatic COVID-19 Test", "TCS Hall")]
 
-
+// Q: How to change 'this' into the entire object?
 function loadAppointmentListings() {
   for(let i = 0; i < apptList.length; i++) {
-    document.getElementById("days").innerHTML += 
-      '<td class="button">' + '<a href="appointment-details.html">' + apptList[i].time + '</a></td>'
+    document.getElementById("slots").innerHTML += 
+      '<td class="button">' + '<a href="appointment-details.html" onclick="saveNewAppt(this.innerHTML)">' + apptList[i].time + '</a></td>'
   }
+}
+
+function saveNewAppt(time) {
+  localStorage.setItem("numInCart", JSON.parse(localStorage.getItem("numInCart")) + 1);
+  alert("New appointment for: " + time + ". Now have " + localStorage.getItem("numInCart") + " upcoming appointments.");
+}
+
+// function loadAppointmentDetails() {
+//   appt = localStorage.getItem("newAppt");
+//   document.getElementById("type").innerHTML = appt.type;
+//   document.getElementById("date-time").innerHTML = appt.date + " at " + appt.time;
+//   document.getElementById("location").innerHTML = appt.location;
+// }
+
+function loadCart() {
+  document.getElementById("num-in-cart").innerHTML = localStorage.getItem("numInCart");
 }

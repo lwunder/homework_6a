@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
   </head>
 
-  <body>
+  <body onload="loadCart()">
     <!-- TOP ROW -->
     <header>
       <div id="header-logo">
@@ -37,6 +37,9 @@
         <thead>
           <tr>
             <th>UPCOMING</th>
+          </tr>
+          <tr>
+            <th class="left-aligned" id="cart-info">You have <span id="num-in-cart"></span> upcoming appointments.</th>
           </tr>
         </thead>
         <tbody>
