@@ -7,6 +7,7 @@ function Appointment(time, date, type, location) {
 }
 
 // localStorage.setItem("upcomingAppts", JSON.stringify([]))
+
 var upcomingAppts = [];
 localStorage.setItem("numInCart", 2);
 
@@ -23,21 +24,25 @@ var apptList = [new Appointment("8:50 AM", "Sunday, February 27, 2022", "Asympto
 function loadAppointmentListings() {
   for(let i = 0; i < apptList.length; i++) {
     document.getElementById("slots").innerHTML += 
-      '<td class="button">' + '<a href="appointment-details.html" onclick="saveNewAppt(this.innerHTML)">' + apptList[i].time + '</a></td>'
+      '<td class="button">' + '<a href="appointment-details.html" onclick="saveNewAppt('+i+')">' + apptList[i].time + '</a></td>'
   }
 }
 
-function saveNewAppt(time) {
+function saveNewAppt(selected_id) {
+  var time = apptList[selected_id].time;
   localStorage.setItem("numInCart", JSON.parse(localStorage.getItem("numInCart")) + 1);
   alert("New appointment for: " + time + ". Now have " + localStorage.getItem("numInCart") + " upcoming appointments.");
+  // store object
+
 }
 
-// function loadAppointmentDetails() {
-//   appt = localStorage.getItem("newAppt");
-//   document.getElementById("type").innerHTML = appt.type;
-//   document.getElementById("date-time").innerHTML = appt.date + " at " + appt.time;
-//   document.getElementById("location").innerHTML = appt.location;
-// }
+function loadAppointmentDetails() {
+  appt = JSON.parse(localStorage.getItem("newAppt"));
+  console.log(appt);
+  document.getElementById("type").innerHTML = appt.type;
+  document.getElementById("date-time").innerHTML = appt.date + " at " + appt.time;
+  document.getElementById("location").innerHTML = appt.location;
+}
 
 function loadCart() {
   document.getElementById("num-in-cart").innerHTML = localStorage.getItem("numInCart");
